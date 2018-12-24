@@ -123,4 +123,16 @@ class ChatVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+    
+    @IBAction func onSignOut(_ sender: Any) {
+        PFUser.logOut()
+//        PFUser.logOutInBackground { (error) in
+//            if (error != nil) {
+//                print(error.debugDescription)
+//                print(error!.localizedDescription)
+//            }
+//        }
+        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+    }
+    
 }

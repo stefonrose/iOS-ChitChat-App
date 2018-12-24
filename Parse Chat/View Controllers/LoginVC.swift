@@ -16,21 +16,21 @@ class LoginVC: UIViewController {
     
     let takenUsernameAlert = UIAlertController(title: "Username Taken", message: "Please try another.", preferredStyle: .alert)
     let userPassSignUpAlert = UIAlertController(title: "Sign-Up Failed", message: "Make sure you entered a valid username and password.", preferredStyle: .alert)
-    
     let userPassRequiredAlert = UIAlertController(title: "Login Failed", message: "Please enter a username/password.", preferredStyle: .alert)
     let invalidPasswordAlert = UIAlertController(title: "Login Failed", message: "Invalid username/password combination. Try again.", preferredStyle: .alert)
     
-    let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
-        // do-nothing
-    }
+    let cancelAction0 = UIAlertAction(title: "Ok", style: .cancel)
+    let cancelAction1 = UIAlertAction(title: "Ok", style: .cancel)
+    let cancelAction2 = UIAlertAction(title: "Ok", style: .cancel)
+    let cancelAction3 = UIAlertAction(title: "Ok", style: .cancel)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        takenUsernameAlert.addAction(cancelAction)
-        userPassRequiredAlert.addAction(cancelAction)
-        invalidPasswordAlert.addAction(cancelAction)
-        userPassSignUpAlert.addAction(cancelAction)
+        takenUsernameAlert.addAction(cancelAction0)
+        userPassRequiredAlert.addAction(cancelAction1)
+        invalidPasswordAlert.addAction(cancelAction2)
+        userPassSignUpAlert.addAction(cancelAction3)
         
     }
     
@@ -58,8 +58,8 @@ class LoginVC: UIViewController {
     @IBAction func onSignUp(_ sender: Any) {
         let newUser = PFUser()
         
-        newUser.username = usernameField.text
-        newUser.password = passwordField.text
+        newUser.username = usernameField.text ?? ""
+        newUser.password = passwordField.text ?? ""
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
                 if error._code == 200 || error._code == 201 {
@@ -71,7 +71,10 @@ class LoginVC: UIViewController {
                     print(error.localizedDescription)
                 }
             } else {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)                //print("Yay, created a user!")
+                if success{
+                    print("Nothing should be happening! \(success)")
+                    //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
             }
         }
     }

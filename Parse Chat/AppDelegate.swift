@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "http://45.79.67.127:1337/parse"
         }))
         
-        if PFUser.current() != nil {
+        if PFUser.current()?.isAuthenticated ?? false {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "chatNav")
         }

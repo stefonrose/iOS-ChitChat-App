@@ -180,10 +180,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RvO-ri-nCy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ki2-yV-uC9"/>
+                    <navigationItem key="navigationItem" id="Ki2-yV-uC9">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="gd2-jH-y4r">
+                            <connections>
+                                <action selector="onSignOut:" destination="rBg-j9-nje" id="zAE-0i-89p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatMessageField" destination="ihW-MJ-8ro" id="hI7-O9-6Pk"/>
                         <outlet property="tableView" destination="txP-v1-vgg" id="5Hk-1l-fg8"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="ppZ-xM-YhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVI-ay-WVK" userLabel="First Responder" sceneMemberID="firstResponder"/>

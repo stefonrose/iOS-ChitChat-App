@@ -29,7 +29,7 @@ The following user stories are complete:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://i.imgur.com/4bF8aNE.gifv)
+![Video Walkthrough](https://i.imgur.com/4bF8aNE.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
